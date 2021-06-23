@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	.bg{
+	 background-color:  #253037;
+	 height: 40vw;
+	 width: 30vw;
+	 
+	 margin: auto;
+	 margin-top: 200px;
+	 color: white;
+
+	}
+
+		
+	</style>
+<script type="text/javascript">
+	 
+      
+	function validate(){
+	
+		var email=document.getElementById('email').value;
+
+		var password=document.getElementById('pass').value;
+		var fname=document.getElementById('fname').value;
+
+		var lname = document.getElementById('lname').value;
+		var age=document.getElementById('age').value;
+		var img=document.getElementById('img').value;
+
+		var ext=img.substring(img.lastIndexOf('.')+1);
+		
+
+		
+		if(email == "")
+		{
+				
+				document.getElementById('erremail').innerHTML="Email is not correct";
+				
+		}
+		else{
+			document.getElementById('erremail').innerHTML="";
+			
+		}
+		
+
+		if (password == "" || password.length < 4) {
+			
+				document.getElementById('errpass').innerHTML="Password should be greater than 4 digits";
+				
+		}
+		else
+		{
+			document.getElementById('errpass').innerHTML="";
+		}
+		
+		if (age == "" || age < 18) {
+				
+		document.getElementById('errage').innerHTML="Age should be greater than 18";	}
+
+		else
+		{
+			
+				document.getElementById('errage').innerHTML="";
+				
+		}
+		if (lname == "") {
+				document.getElementById('errlname').innerHTML="Last Name cant be empty";
+				}
+			else{
+				document.getElementById('errlname').innerHTML="";
+				
+			}
+		if (fname == "") {
+
+				document.getElementById('errfname').innerHTML="First Name cant be empty";
+
+			}
+			else
+			{
+			document.getElementById('errfname').innerHTML="";	
+			}
+
+
+		
+// 		
+
+
+		if (ext == "jpeg" || ext == "JPEG" || ext == "jpg" || ext == "JPG" ) 
+			{
+				
+				document.getElementById('errimg').innerHTML="";
+			}
+		else{
+			
+			if (ext== "") {document.getElementById('errimg').innerHTML="Upload correct file";
+			return false;}
+				
+				else{
+				document.getElementById('errimg').innerHTML="Upload correct file";
+				return false;
+			}
+			
+		}
+
+	}
+</script>
+</head>
+<body style="background-image: url(bg.jpg); width: 100%;">
+<div class="bg">
+	<h2>Sign Up</h2>
+	<form action="signup.php" method="post" onsubmit="return validate()" enctype="multipart/form-data">
+	<label>Email</label>
+	<input type="email" name="email" id="email">
+	<div id="erremail" style="background-color: red;"></div><br>
+		<label>Password</label>
+			<input type="Password" name="password" id="pass">
+			<div id="errpass" style="background-color: red;"></div><br>
+			<label>First Name</label>
+			<input type="text" name="fname" id="fname">
+			<div id="errfname" style="background-color: red;"></div>
+			<br>
+			<label>Last Name</label>
+			<input type="text" name="lname" id="lname" >
+			<div id="errlname" style="background-color: red;"></div><br>
+			<label>Age</label><input type="number" name="age" id="age">
+			<div id="errage" style="background-color: red;"></div><Br>
+			<label>Gender</label>
+
+			<label>Male</label><input type="radio" name="gender" value="male" id="gen">
+			<label>Female</label><input type="radio" name="gender" value="female" id="gen">
+			<div id="errgen" style="background-color: red;"></div>
+
+
+			<label>Upload Photo</label>
+		<input type="file" name="image" id="img">
+
+
+			<div id="errimg" style="background-color: red;"></div><Br>
+
+			
+		
+			<input type="submit" name="submit" value="submit"><br>
+		</form>
+		<h4>Already have an Account?</h4>
+
+			<a href="loginpage.html" style="color: white;
+			text-decoration: none;">Click me to Log In</a>			
+
+</div>
+
+
+
+
+</body>
+</html>
